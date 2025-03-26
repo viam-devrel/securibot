@@ -1,18 +1,19 @@
 # Module securibot 
 
-Provide a description of the purpose of the module and any relevant information.
+This module provides support for the [Securibot codelab](https://codelabs.viam.com) to automate a motion activated door based on a face recognition model.
 
 ## Model devrel:securibot:doorbot
 
-Provide a description of the model and any relevant information.
+The control logic service for reading detections from the face recognition vision service and moving the dependent servo for door access.
 
 ### Configuration
 The following attribute template can be used to configure this model:
 
 ```json
 {
-"attribute_1": <float>,
-"attribute_2": <string>
+    "camera_name": <string>,
+    "servo_name": <string>,
+    "vision_name": <string>
 }
 ```
 
@@ -22,29 +23,40 @@ The following attributes are available for this model:
 
 | Name          | Type   | Inclusion | Description                |
 |---------------|--------|-----------|----------------------------|
-| `attribute_1` | float  | Required  | Description of attribute 1 |
-| `attribute_2` | string | Optional  | Description of attribute 2 |
+| `camera_name` | string  | Required  | Name of the camera component to pass to the vision service for detections |
+| `servo_name` | string | Required  | Name of the servo component to use for actuation |
+| `vision_name` | string | Required  | Name of the vision service to use for detections |
 
 #### Example Configuration
 
 ```json
 {
-  "attribute_1": 1.0,
-  "attribute_2": "foo"
+    "camera_name": "camera-1",
+    "servo_name": "servo-1",
+    "vision_name": "vision-1"
 }
 ```
 
 ### DoCommand
 
-If your model implements DoCommand, provide an example payload of each command that is supported and the arguments that can be used. If your model does not implement DoCommand, remove this section.
+This module implements the following commands to be used by the `DoCommand` method in the Control tab of the Viam app or one of the language SDKs.
 
-#### Example DoCommand
+**start**
+
+Start the control loop for reading the moisture sensor data and triggering the relay for the water pump.
 
 ```json
 {
-  "command_name": {
-    "arg1": "foo",
-    "arg2": 1
-  }
+    "start": []
+}
+```
+
+**stop**
+
+Stop the control loop.
+
+```json
+{
+    "stop": []
 }
 ```

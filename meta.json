@@ -2,13 +2,13 @@
   "$schema": "https://dl.viam.dev/module.schema.json",
   "module_id": "devrel:securibot",
   "visibility": "public",
-  "url": "",
-  "description": "Modular generic service: doorbot",
+  "url": "https://github.com/viam-devrel/securibot",
+  "description": "Automated access for motion activated door using a servo",
   "models": [
     {
       "api": "rdk:service:generic",
       "model": "devrel:securibot:doorbot",
-      "short_description": "Provide a short (100 characters or less) description of this model here",
+      "short_description": "Service for reading detections from a vision service & moving the dependent servo for door access",
       "markdown_link": "README.md#model-devrelsecuribotdoorbot"
     }
   ],
