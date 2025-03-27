@@ -43,7 +43,7 @@ This module implements the following commands to be used by the `DoCommand` meth
 
 **start**
 
-Start the control loop for reading the moisture sensor data and triggering the relay for the water pump.
+Start the control loop for reading the webcam data, comparing it to known faces, and triggering the servo motor.
 
 ```json
 {
